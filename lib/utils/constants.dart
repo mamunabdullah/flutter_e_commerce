@@ -1,0 +1,1 @@
+const String kBaseUrl = "https://panel.supplyline.network/api/product/";
