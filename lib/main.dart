@@ -1,11 +1,11 @@
 import 'package:e_commerce/data/repository/product_repo_impl.dart';
 import 'package:e_commerce/data/source/product_service.dart';
-import 'package:e_commerce/ui/home/bloc/home_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:e_commerce/ui/home/home_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:bloc/bloc.dart';
+
+import 'bloc/home_bloc.dart';
 
 void main() {
   runApp(const MyApp());

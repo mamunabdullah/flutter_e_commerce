@@ -3,7 +3,8 @@ import 'package:e_commerce/ui/home/product_list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'bloc/home_bloc.dart';
+import '../../bloc/home_bloc.dart';
+
 
 class HomeScreen extends StatelessWidget {
   static const String route = "home";
@@ -68,7 +69,7 @@ class _BodyState extends State<Body> {
                               filled: false,
                               focusedBorder: InputBorder.none,
                               enabledBorder: InputBorder.none,
-                              hintText: "সার্চ করুন",
+                              hintText: "কাঙ্ক্ষিত পণ্যটি খুঁজুন",
                               suffixIcon: Icon(
                                 Icons.search,
                                 color: Colors.grey,
