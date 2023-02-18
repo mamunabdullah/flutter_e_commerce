@@ -3,7 +3,7 @@ import 'package:e_commerce/ui/home/product_list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../bloc/home_bloc.dart';
+import '../../bloc/product_bloc.dart';
 
 
 class HomeScreen extends StatelessWidget {
@@ -30,15 +30,16 @@ class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: BlocBuilder<HomeBloc, HomeState>(
+      child: BlocBuilder<ProductBloc, ProductState>(
         builder: (context, state) {
           switch (state.status) {
+            case HomeStatus.productDetailsFetched:
             case HomeStatus.initial:
             case HomeStatus.loading:
               return const Center(
                 child: CircularProgressIndicator(),
               );
-            case HomeStatus.success:
+            case HomeStatus.productListFetched:
               return Container(
                 color: const Color(0xFFF7F2FF),
                 width: double.infinity,

@@ -1,1 +1,1 @@
-const String kBaseUrl = "https://panel.supplyline.network/api/product/";
+const String kBaseUrl = "https://panel.supplyline.network/api/";

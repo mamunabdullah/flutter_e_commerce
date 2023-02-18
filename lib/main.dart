@@ -5,7 +5,7 @@ import 'package:e_commerce/ui/home/home_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'bloc/home_bloc.dart';
+import 'bloc/product_bloc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: BlocProvider(
-        create: (_) => HomeBloc(repository: ProductRepoImpl(ProductService()))
+        create: (_) => ProductBloc(repository: ProductRepoImpl(ProductService()))
           ..add(
             const SearchProductsEvent(""),
           ),
