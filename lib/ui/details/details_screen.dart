@@ -35,6 +35,9 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+
+  bool showCartView = false;
+
   @override
   void initState() {
     super.initState();
@@ -189,82 +192,127 @@ class _BodyState extends State<Body> {
                     const SizedBox(
                       height: 12,
                     ),
-                    Card(
-                      elevation: 3,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15)),
-                      child: Container(
-                        width: double.infinity,
-                        padding: const EdgeInsets.all(16),
-                        child: Column(
+                    Stack(
+                      alignment: Alignment.center,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children:  [
-                                const Text(
-                                  'ক্রয়মূল্যঃ',
-                                  style: TextStyle(
-                                      color: Color(0XFFDA2079),
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 20),
+                            Card(
+                              elevation: 3,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15)),
+                              child: Container(
+                                width: double.infinity,
+                                padding: const EdgeInsets.all(16),
+                                child: Column(
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        const Text(
+                                          'ক্রয়মূল্যঃ',
+                                          style: TextStyle(
+                                              color: Color(0XFFDA2079),
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 20),
+                                        ),
+                                        Text(
+                                          '৳ ${state.productDetails?.data?.charge?.currentCharge}',
+                                          style: const TextStyle(
+                                              color: Color(0XFFDA2079),
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 20),
+                                        ),
+                                      ],
+                                    ),
+                                    const SizedBox(
+                                      height: 12,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        const Text(
+                                          'বিক্রয়মূল্যঃ',
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 20),
+                                        ),
+                                        Text(
+                                          '৳ ${state.productDetails?.data?.charge?.sellingPrice}',
+                                          style: const TextStyle(
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 20),
+                                        ),
+                                      ],
+                                    ),
+                                    const SizedBox(
+                                      height: 12,
+                                    ),
+                                    const DottedDivider(
+                                      color: Colors.grey,
+                                    ),
+                                    const SizedBox(
+                                      height: 12,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        const Text(
+                                          'লাভঃ',
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 20),
+                                        ),
+                                        Text(
+                                          '৳ ${state.productDetails?.data?.charge?.profit}',
+                                          style: const TextStyle(
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 20),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
                                 ),
-                                Text(
-                                  '৳ ${state.productDetails?.data?.charge?.currentCharge}',
-                                  style: const TextStyle(
-                                      color: Color(0XFFDA2079),
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 20),
-                                ),
-                              ],
+                              ),
                             ),
-                            const SizedBox(height: 12,),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children:  [
-                                const Text(
-                                  'বিক্রয়মূল্যঃ',
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 20),
-                                ),
-                                Text(
-                                  '৳ ${state.productDetails?.data?.charge?.sellingPrice}',
-                                  style: const TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 20),
-                                ),
-                              ],
+                            const SizedBox(
+                              height: 18,
                             ),
-                            const SizedBox(height: 12,),
-                            const DottedDivider(color: Colors.grey,),
-                            const SizedBox(height: 12,),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children:  [
-                                const Text(
-                                  'লাভঃ',
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 20),
-                                ),
-                                Text(
-                                  '৳ ${state.productDetails?.data?.charge?.profit}',
-                                  style: const TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 20),
-                                ),
-                              ],
+                            const Text(
+                              'বিস্তারিত',
+                              style:
+                              TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                             ),
                           ],
                         ),
-                      ),
+                        Positioned(
+                            bottom: 0,
+                            child: InkWell(
+                              onTap: (){
+                                setState(() {
+                                  if(showCartView) {
+                                    showCartView = false;
+                                  } else {
+                                    showCartView =true;
+                                  }
+                                });
+                              },
+                              child: Image.asset(
+                                showCartView==true ?'assets/icons/ic_cart.png':'assets/icons/ic_buy.png',
+                                height: 90,
+                                width: 90,
+                              ),
+                            ))
+                      ],
                     ),
-                    const SizedBox(height: 18,),
-                    const Text('বিস্তারিত',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
                     const SizedBox(
                       height: 8,
                     ),

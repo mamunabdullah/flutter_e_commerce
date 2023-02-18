@@ -9,10 +9,8 @@ class ProductRepoImpl extends ProductRepository {
   ProductRepoImpl(this.productService);
 
   @override
-  Future<ProductListItemResponse?> searchProducts(
-      {String search = "", int limit = 10, int offset = 10}) {
-    return productService.searchProducts(
-        search: search, limit: limit, offset: offset);
+  Future<ProductListItemResponse?> searchProducts({String search = ""}) {
+    return productService.searchProducts(search: search);
   }
 
   @override

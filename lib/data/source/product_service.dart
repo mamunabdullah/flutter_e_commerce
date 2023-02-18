@@ -7,7 +7,7 @@ import '../../domain/models/Product_details_response.dart';
 
 class ProductService {
   Future<ProductListItemResponse?> searchProducts(
-      {String search = "", int limit = 10, int offset = 10}) async {
+      {String search = "", int limit = 100, int offset = 10}) async {
     final Uri productSearchUri = Uri.parse(
         "${kBaseUrl}product/search-suggestions/?limit=$limit&offset=$offset&search=$search");
 
