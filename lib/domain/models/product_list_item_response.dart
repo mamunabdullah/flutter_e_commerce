@@ -30,29 +30,29 @@ class ProductListItemResponse {
 
 class Data {
   Data({
-    this.categories,
+    // this.categories,
     this.products,
   });
 
   Data.fromJson(dynamic json) {
-    if (json['categories'] != null) {
-      categories = [];
-      json['categories'].forEach((v) {
-        categories?.add(Dynamic.fromJson(v));
-      });
-    }
+    // if (json['categories'] != null) {
+    //   categories = [];
+    //   json['categories'].forEach((v) {
+    //     categories?.add(Dynamic.fromJson(v));
+    //   });
+    // }
     products =
         json['products'] != null ? Products.fromJson(json['products']) : null;
   }
 
-  List<dynamic>? categories;
+  // List<dynamic>? categories;
   Products? products;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
-    if (categories != null) {
-      map['categories'] = categories?.map((v) => v.toJson()).toList();
-    }
+    // if (categories != null) {
+    //   map['categories'] = categories?.map((v) => v.toJson()).toList();
+    // }
     if (products != null) {
       map['products'] = products?.toJson();
     }
@@ -178,9 +178,9 @@ class Results {
     this.createdBy,
     this.updatedBy,
     this.category,
-    this.relatedProduct,
-    this.filterValue,
-    this.distributors,
+    // this.relatedProduct,
+    // this.filterValue,
+    // this.distributors,
   });
 
   Results.fromJson(dynamic json) {
@@ -224,24 +224,24 @@ class Results {
     createdBy = json['created_by'];
     updatedBy = json['updated_by'];
     category = json['category'] != null ? json['category'].cast<num>() : [];
-    if (json['related_product'] != null) {
-      relatedProduct = [];
-      json['related_product'].forEach((v) {
-        relatedProduct?.add(Dynamic.fromJson(v));
-      });
-    }
-    if (json['filter_value'] != null) {
-      filterValue = [];
-      json['filter_value'].forEach((v) {
-        filterValue?.add(Dynamic.fromJson(v));
-      });
-    }
-    if (json['distributors'] != null) {
-      distributors = [];
-      json['distributors'].forEach((v) {
-        distributors?.add(Dynamic.fromJson(v));
-      });
-    }
+    // if (json['related_product'] != null) {
+    //   relatedProduct = [];
+    //   json['related_product'].forEach((v) {
+    //     relatedProduct?.add(Dynamic.fromJson(v));
+    //   });
+    // }
+    // if (json['filter_value'] != null) {
+    //   filterValue = [];
+    //   json['filter_value'].forEach((v) {
+    //     filterValue?.add(Dynamic.fromJson(v));
+    //   });
+    // }
+    // if (json['distributors'] != null) {
+    //   distributors = [];
+    //   json['distributors'].forEach((v) {
+    //     distributors?.add(Dynamic.fromJson(v));
+    //   });
+    // }
   }
 
   num? id;
@@ -268,20 +268,20 @@ class Results {
   bool? isSeller;
   bool? isPhone;
   bool? willShowEmi;
-  dynamic badge;
+  String? badge;
   bool? isActive;
   String? sackEquivalent;
   String? createdAt;
   String? updatedAt;
-  dynamic language;
+  String? language;
   String? seller;
-  dynamic combo;
+  String? combo;
   String? createdBy;
-  dynamic updatedBy;
+  String? updatedBy;
   List<num>? category;
-  List<dynamic>? relatedProduct;
-  List<dynamic>? filterValue;
-  List<dynamic>? distributors;
+  // List<dynamic>? relatedProduct;
+  // List<dynamic>? filterValue;
+  // List<dynamic>? distributors;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -326,15 +326,15 @@ class Results {
     map['created_by'] = createdBy;
     map['updated_by'] = updatedBy;
     map['category'] = category;
-    if (relatedProduct != null) {
-      map['related_product'] = relatedProduct?.map((v) => v.toJson()).toList();
-    }
-    if (filterValue != null) {
-      map['filter_value'] = filterValue?.map((v) => v.toJson()).toList();
-    }
-    if (distributors != null) {
-      map['distributors'] = distributors?.map((v) => v.toJson()).toList();
-    }
+    // if (relatedProduct != null) {
+    //   map['related_product'] = relatedProduct?.map((v) => v.toJson()).toList();
+    // }
+    // if (filterValue != null) {
+    //   map['filter_value'] = filterValue?.map((v) => v.toJson()).toList();
+    // }
+    // if (distributors != null) {
+    //   map['distributors'] = distributors?.map((v) => v.toJson()).toList();
+    // }
     return map;
   }
 }
